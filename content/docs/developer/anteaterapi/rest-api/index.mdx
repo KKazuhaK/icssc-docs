@@ -8,14 +8,15 @@ All requests to the REST API should be made using the base URL https://anteatera
 
 ## WebSoc Day Filtering
 
-The `days` query parameter on the `/websoc` endpoint must be a comma-separated list of day tokens.
+The full list of WebSoc query parameters is available in the [API Reference](https://anteaterapi.com/reference#tag/websoc/GET/v2/rest/websoc).
+When constructing a request to the `/websoc` endpoint, the `days` query parameter must be a comma-separated list of day tokens.
 For example:
 
 ```text
 GET /websoc?year=2026&quarter=fall&days=Tu,Th
 ```
 
-The supported day tokens are `M`, `Tu`, `W`, `Th`, `F`, `S`, and `Su`.
+Canonical day tokens include `M`, `Tu`, `W`, `Th`, `F`, `S`, and `Su`.
 The filter matches sections that meet on at least one of the supplied days; it does not require a section to meet on every supplied day.
 For example, `days=Tu,Th` matches sections meeting on Tuesday or Thursday.
 Use commas between day tokens; `days=TuTh` is not accepted.
