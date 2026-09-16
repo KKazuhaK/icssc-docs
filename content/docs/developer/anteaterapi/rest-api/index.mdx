@@ -6,6 +6,20 @@ title: Rest API
 
 All requests to the REST API should be made using the base URL https://anteaterapi.com/v2/rest.
 
+## WebSoc Day Filtering
+
+The `days` query parameter on the `/websoc` endpoint must be a comma-separated list of day tokens.
+For example:
+
+```text
+GET /websoc?year=2026&quarter=fall&days=Tu,Th
+```
+
+The supported day tokens are `M`, `Tu`, `W`, `Th`, `F`, `S`, and `Su`.
+The filter matches sections that meet on at least one of the supplied days; it does not require a section to meet on every supplied day.
+For example, `days=Tu,Th` matches sections meeting on Tuesday or Thursday.
+Use commas between day tokens; `days=TuTh` is not accepted.
+
 ## Response Schema
 
 All responses, successful or otherwise, will be sent as JSON. Specific response types can be found on the [API Reference](https://anteaterapi.com/reference).
